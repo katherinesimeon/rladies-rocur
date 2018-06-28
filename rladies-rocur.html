@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>@WeAreRLadies: The R-Ladies RoCur</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Projects</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="rladies-rocur.html">R-Ladies RoCur</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://twitter.com/WeAreRLadies">
+    <span class="fa fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/rladies">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore"><span class="citation">@WeAreRLadies</span>: The R-Ladies RoCur</h1>
+
+</div>
+
+
+<pre class="r"><code>library(dplyr)
+
+r-users %&gt;%
+  filter(team == &#39;r-ladies&#39;)</code></pre>
+<div class="figure">
+<img src="img/rladiesmap.png" alt="A Map of R-Ladies Chapters" />
+<p class="caption"><em>A Map of R-Ladies Chapters</em></p>
+</div>
+<div id="about" class="section level2">
+<h2>About</h2>
+<p>The <strong><a href="https://twitter.com/WeAreRLadies">R-Ladies RoCur (Rotating Curation)</a></strong> is a twitter handle that will feature an awesome R-Lady each week. This account is run by R-Ladies Global.</p>
+<p><strong><a href="https://rladies.org/">R-Ladies</a></strong> is a worldwide organization whose mission is to promote gender diversity in the R Community. Our primary focus, therefore, is on supporting minority gender R enthusiasts to achieve their programming potential, by building a collaborative global network of R leaders, mentors, learners, and developers to facilitate individual and collective progress worldwide.</p>
+<div id="objectives" class="section level3">
+<h3>Objectives</h3>
+<ol style="list-style-type: decimal">
+<li>To encourage and maintain Twitter engagement within the R-Ladies community.<br />
+</li>
+<li>To spotlight female and minority genders (including but not limited to cis/trans women, trans men, non-binary, genderqueer, agender) and their great work in R.</li>
+</ol>
+</div>
+</div>
+<div id="how-it-works" class="section level2">
+<h2>How It Works</h2>
+<p>Every week, a different R-Lady takes over our twitter account to talk about the work they do in R. Featured curators come from a diversity of professions and have a range of experiences in R, from novice to expert.</p>
+<p>If you are interested in becoming a curator, see our <a href="#curating">Be a Curator</a> section and <a href="https://goo.gl/forms/bQ7mHQDXrNHXEZCl2">sign up here</a>.</p>
+<p>Check out <span class="citation">[@WeAreRLadies]</span>(<a href="https://twitter.com/WeAreRLadies" class="uri">https://twitter.com/WeAreRLadies</a>) every Monday for a new curator!</p>
+<hr />
+</div>
+<div id="curator-schedule" class="section level2">
+<h2>Curator Schedule</h2>
+<p>Here is the current schedule of featured curators.</p>
+<table class="table table-striped" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Week
+</th>
+<th style="text-align:left;">
+Speaker
+</th>
+<th style="text-align:left;">
+Affiliation
+</th>
+<th style="text-align:left;">
+Twitter
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+16-Jul-18
+</td>
+<td style="text-align:left;">
+RLadies Global
+</td>
+<td style="text-align:left;">
+Sample Position and Affiliation
+</td>
+<td style="text-align:left;">
+<a href="https://twitter.com/RLadiesGlobal">RLadiesGlobal</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+23-Jul-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+30-Jul-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6-Aug-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+13-Aug-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+20-Aug-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+27-Aug-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3-Sep-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10-Sep-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17-Sep-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+24-Sep-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1-Oct-18
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+OPEN
+</td>
+<td style="text-align:left;">
+<a href="OPEN" class="uri">OPEN</a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A page with curator bios and an archive of past curators will be up soon!</p>
+<hr />
+</div>
+<div id="curating" class="section level2">
+<h2>Be a Curator!</h2>
+<p>We are always looking for R-users to be a featured curator for our account! Everyone is welcome; R-Ladies encourages R-users of all professional backgrounds and experience levels to curate this account. Additionally, individuals do not need to be affiliated with R-Ladies to curate. Featured curators must meet the following criteria:</p>
+<ul>
+<li>Curators must identify as female or non-binary.<br />
+</li>
+<li>Curators do not need to be affiliated with R-Ladies; however, curators need to register in the <a href="https://rladies.org/directory/">R-Ladies directory</a> if they haven’t yet<br />
+</li>
+<li>Curators must be individuals (i.e. an R-Ladies Chapter cannot be a featured curator; however, an organizer from a local chapter may curate and tweet about chapter events)</li>
+</ul>
+<div id="curator-sign-up" class="section level3">
+<h3>Curator Sign Up</h3>
+<p>Individuals may sign up to be a curator via <strong><a href="https://goo.gl/forms/bQ7mHQDXrNHXEZCl2">this form</a></strong>.</p>
+<ul>
+<li>They will be asked to provide a first and second choice.<br />
+</li>
+<li>Administrators will make all efforts to honor all scheduling requests but may ask that you be flexible as the administrators need to coordinate multiple schedules.<br />
+</li>
+<li>Administrators will contact you to schedule the week you will curate.</li>
+</ul>
+</div>
+<div id="how-curating-works" class="section level3">
+<h3>How Curating Works</h3>
+<ul>
+<li>Curatorship begins each Monday at 7:00 AM ET and ends the following Saturday at 12:00 PM ET.<br />
+</li>
+<li>For the duration of the curatorship, the profile photo will be a photo of the curator.<br />
+</li>
+<li>The personal twitter handle of the curator will be in the bio (if applicable, you do not need to be a twitter user prior to curating).<br />
+</li>
+<li>Your first post should introduce yourself to the account followers. Your first tweet should tell the audience: what you do (your job, hobbies, etc.), and what you do in R. Pin this tweet so it stays at the top of the feed throughout the week.<br />
+</li>
+<li>Tweet throughout the week! We do not require that you tweet a specific number of times. But, we ask that you be as active as your schedule allows during your curatorship.<br />
+</li>
+<li>Every Sunday, the administrator will update access of the account for the next curator via Tweetdeck.</li>
+</ul>
+</div>
+<div id="curating-agreement" class="section level3">
+<h3>Curating Agreement</h3>
+<p><em><strong>By signing on to be a curator of <span class="citation">@WeAreRLadies</span> you agree to the following:</strong></em></p>
+<ol style="list-style-type: decimal">
+<li><p>Abide by R-Ladies’ <a href="https://github.com/rladies/starter-kit/wiki/Code-of-Conduct">Code of Conduct</a> in all activity and interactions you have on the <span class="citation">@WeAreRLadies</span> account.</p></li>
+<li><p>Be the sole tweeter of <span class="citation">@WeAreRLadies</span> for the week that you are assigned.</p></li>
+<li><p>Don’t change the photo, biography, background or theme of the <span class="citation">@WeAreRLadies</span> account, unless expressly directed to do so (e.g. changing the profile photo at the start of your week).</p></li>
+<li><p>Provide a profile photo which may be used during your week, and some background information on yourself, including research and interests, for the <span class="citation">@WeAreRLadies</span> blog/website.</p></li>
+<li><p>All content posted during your week is your responsibility. That said, the <span class="citation">@WeAreRLadies</span> administrators will take action if your posts contain racism, sexism, homophobia, etc.</p></li>
+<li><p>Refrain from using obscene or abusive language.</p></li>
+<li><p>Don’t actively promote or advertise any business or receive remuneration from a third party to do so.</p></li>
+<li><p>After your assigned week, remove access to <span class="citation">@WeAreRLadies</span> from any applications to which you may have granted access.</p></li>
+<li><p>You may not follow, unfollow, or block any other twitter users from the account. Additionally, you may not interact with individuals via direct messages.</p></li>
+<li><p>A curator’s access may be revoked if a disproportionate amount of followers report problems engaging with the curator, or if the curator is inactive on the account.</p></li>
+</ol>
+<p><em>In the event that you receive abuse while contributing, please do block the offender if you feel it necessary. If this does occur, please send the administrators an email or via the R-Ladies Community Slack, noting the offender’s Twitter handle and a description of the offense, to <a href="mailto:weare@rladies.org">weare@rladies.org</a>.</em></p>
+<p>Please follow the <a href="https://help.twitter.com/en/rules-and-policies/twitter-rules#">Twitter terms of service</a> The administrators of <span class="citation">@WeAreRLadies</span> reserve the right to warn or revoke the access of anyone who violates Twitter’s terms of service or breaches any of the above rules.</p>
+<hr />
+</div>
+</div>
+<div id="tweeting-tips" class="section level2">
+<h2>Tweeting Tips</h2>
+<div id="introducing-yourself" class="section level3">
+<h3>Introducing Yourself</h3>
+<p>Start your curatorship by introducing yourself, what you do (your job, hobbies, etc.), and what you do in R. <em>Pin this tweet so that it stays on top of the account feed during your curation week</em></p>
+<p>Suggestions on how to introduce yourself:</p>
+<ul>
+<li>Share a URL to your website or github or etc.<br />
+</li>
+<li>Share your bio that will be posted on the RoCur blog/website.</li>
+</ul>
+<div class="figure">
+<img src="img/pin_tweet.png" alt="An example of pinning a tweet" />
+<p class="caption"><em>An example of pinning a tweet</em></p>
+</div>
+</div>
+<div id="general-tweeting-guidelines" class="section level3">
+<h3>General Tweeting Guidelines</h3>
+<ul>
+<li>We do not require that you tweet a specific number of times. But, we ask that you be as active as your schedule allows during your curatorship.<br />
+</li>
+<li>The content of your tweets is all up to you! But keep it relevant to R and/or R-Ladies. Make the account and its tweets useful for learning.<br />
+</li>
+<li>Tweet pictures/graphics whenever possible.
+<ul>
+<li>Posting photos from R-Ladies meetups or other R-related events is highly encouraged.<br />
+</li>
+<li>Please properly attribute your photos and graphics by asking permission from the source if not you and tagging the individual if able.<br />
+</li>
+<li>Tag individuals who are in the photos if able.<br />
+</li>
+</ul></li>
+<li>Use hashtags! (See below, <a href="#TweetR">Tweeting about R</a>, for more information on this)<br />
+</li>
+<li>Add emojis and gifs when appropriate :)<br />
+</li>
+<li>Have Fun!</li>
+</ul>
+</div>
+<div id="TweetR" class="section level3">
+<h3>Tweeting about R</h3>
+<ul>
+<li>If you are part of an R-Ladies Chapter, highlight a project your local chapter is working on.<br />
+</li>
+<li>Share relevant articles, blog posts, etc. relevant to your work or interests in R.<br />
+</li>
+<li>Tell us something you just learned about R.<br />
+</li>
+<li>Tell followers about a current R project you are doing (share a line of code or dataviz, link to a package you use a lot).<br />
+</li>
+<li>When mentioning a package, add a link to its CRAN/BioConductor/GitHub page.
+<ul>
+<li>If possible, tag the Twitter account of the maintainer if this person isn’t too famous yet (e.g. no need to link and tag Hadley Wickham when mentioning ggplot2).<br />
+</li>
+<li>Same goes for courses, books, and etc.<br />
+</li>
+</ul></li>
+<li>Use hashtags whenever possible.
+<ul>
+<li>Use the hashtag <strong>#RLadies</strong> whenever possible and relevant.<br />
+</li>
+<li>Use the <strong>#rstats</strong> hashtag when you share something that can be useful for the greater R community (e.g. a cool package); however, don’t use it when saying “Oh I’m doing R look at my screen” because this would create clutter in the R hashtag timeline and potentially lead to people blocking/silencing the account which we do not want. ;o)<br />
+</li>
+</ul></li>
+<li>Some other hashtag examples: <strong>#dataviz, #rspatial, #opendata</strong><br />
+</li>
+<li>You can also hashtag: package names, the location of your local chapter, etc.</li>
+</ul>
+</div>
+<div id="interacting-with-your-audience" class="section level3">
+<h3>Interacting with your audience</h3>
+<p><img src="img/twitter_poll.png" style="width:35%; margin: 5px 10px" align="right"></p>
+<p>One goal of <span class="citation">@WeAreRLadies</span> is to maintain a strong R-Ladies community on Twitter! Therefore, please respond to people who interact with the account.</p>
+<p>If someone asks a question, we suggest re-tweeting their question with your response as a comment so that others can see the original question.</p>
+<p><em>Other suggestions for interacting with your audience:</em></p>
+<ul>
+<li>Ask a question about something you are having trouble with in R (our community is all about helping and supporting each other).<br />
+</li>
+<li>Ask for recommendations on packages/datasets/features in R for a project you are working on.<br />
+</li>
+<li>Create a twitter poll for followers to respond to.</li>
+</ul>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
