@@ -1,5 +1,5 @@
 ---
-title: '@WeAreRLadies: The R-Ladies RoCur'
+title: '**@WeAreRLadies:** The R-Ladies RoCur'
 output: 
   html_document:
     toc: TRUE
@@ -11,23 +11,23 @@ output:
 knitr::opts_chunk$set(cache=FALSE,echo=FALSE)
 library(dplyr)
 library(kableExtra)
+library(emo)
 ```
 
 ```{r, echo=TRUE, eval=FALSE}
 library(dplyr)
-
 r-users %>%
   filter(team == 'r-ladies')
 ```
 
-![_A Map of R-Ladies Chapters_](img/rladiesmap.png)  
+![_A Map Countries that have R-Ladies Chapters_](img/rladiesmap.png)  
   
   
   
   
 ## About  
   
-The **[R-Ladies RoCur (Rotating Curation)](https://twitter.com/WeAreRLadies)** is a twitter handle that will feature an awesome R-Lady each week. This account is run by R-Ladies Global.      
+The R-Ladies RoCur (RoCur = Rotating Curation) is a rotating curation twitter handle, **@[WeAreRLadies](https://twitter.com/WeAreRLadies)**, that will feature an awesome R-Lady each week. This account is run by R-Ladies Global.      
   
   
 **[R-Ladies](https://rladies.org/)** is a worldwide organization whose mission is to promote gender diversity in the R Community. Our primary focus, therefore, is on supporting minority gender R enthusiasts to achieve their programming potential, by building a collaborative global network of R leaders, mentors, learners, and developers to facilitate individual and collective progress worldwide.  
@@ -40,13 +40,17 @@ The **[R-Ladies RoCur (Rotating Curation)](https://twitter.com/WeAreRLadies)** i
 1. To encourage and maintain Twitter engagement within the R-Ladies community.    
 2. To spotlight female and minority genders (including but not limited to cis/trans women, trans men, non-binary, genderqueer, agender) and their great work in R.   
   
+  
+***  
+  
+  
 ## How It Works  
   
 Every week, a different R-Lady takes over our twitter account to talk about the work they do in R. Featured curators come from a diversity of professions and have a range of experiences in R, from novice to expert.  
   
 If you are interested in becoming a curator, see our [Be a Curator](#curating) section and [sign up here](https://goo.gl/forms/bQ7mHQDXrNHXEZCl2).  
   
-Check out [@WeAreRLadies](https://twitter.com/WeAreRLadies) every Monday for a new curator!    
+Check out **@[WeAreRLadies](https://twitter.com/WeAreRLadies)** every Monday for a new curator!    
   
 
 ***  
@@ -77,7 +81,7 @@ A page with curator bios and an archive of past curators will be up soon!
 We are always looking for R-users to be a featured curator for our account! Everyone is welcome; R-Ladies encourages R-users of all professional backgrounds and experience levels to curate this account. Additionally, individuals do not need to be affiliated with R-Ladies to curate. Featured curators must meet the following criteria:  
   
 * Curators must identify as female or non-binary.  
-* Curators do not need to be affiliated with R-Ladies; however, curators need to register in the [R-Ladies directory](https://rladies.org/directory/) if they haven’t yet   
+* Curators do not need to be affiliated with R-Ladies; however, curators need to register in the [R-Ladies Directory](https://rladies.org/directory/) if they haven’t yet   
 * Curators must be individuals (i.e. an R-Ladies Chapter cannot be a featured curator; however, an organizer from a local chapter may curate and tweet about chapter events)   
 
 ### Curator Sign Up  
@@ -92,10 +96,10 @@ Individuals may sign up to be a curator via **[this form](https://goo.gl/forms/b
    
 ### How Curating Works  
   
-* Curatorship begins each Monday at 7:00 AM ET and ends the following Saturday at 12:00 PM ET.   
+* Curatorship begins each **Monday at 7:00 AM ET** and ends the following **Saturday at 12:00 PM ET**.   
 * For the duration of the curatorship, the profile photo will be a photo of the curator.  
-* The personal twitter handle of the curator will be in the bio (if applicable, you do not need to be a twitter user prior to curating).   
-* Your first post should introduce yourself to the account followers. Your first tweet should tell the audience: what you do (your job, hobbies, etc.), and what you do in R. Pin this tweet so it stays at the top of the feed throughout the week.   
+* The personal twitter handle of the curator will be in the bio (if applicable; you do not need to be a twitter user prior to curating).   
+* Your first post should introduce yourself to the account followers. Your first tweet should tell the audience: what you do (your job, hobbies, etc.), and what you do in R. Pin this tweet so it stays at the top of the feed throughout the week. See more about this under [Twitter Tips](#tweettips).     
 * Tweet throughout the week! We do not require that you tweet a specific number of times. But, we ask that you be as active as your schedule allows during your curatorship.  
 * Every Sunday, the administrator will update access of the account for the next curator via Tweetdeck.   
   
@@ -136,7 +140,7 @@ Please follow the [Twitter terms of service](https://help.twitter.com/en/rules-a
 ***  
   
   
-## Tweeting Tips  
+## Twitter Tips {#tweettips}   
   
 ### Introducing Yourself  
   
@@ -151,16 +155,16 @@ Suggestions on how to introduce yourself:
 ![*An example of pinning a tweet*](img/pin_tweet.png)
   
 
-### General Tweeting Guidelines   
+### General Tweeting Guidelines        
   
 * We do not require that you tweet a specific number of times. But, we ask that you be as active as your schedule allows during your curatorship.    
 * The content of your tweets is all up to you! But keep it relevant to R and/or R-Ladies. Make the account and its tweets useful for learning.   
 * Tweet pictures/graphics whenever possible.  
     + Posting photos from R-Ladies meetups or other R-related events is highly encouraged.  
-    + Please properly attribute your photos and graphics by asking permission from the source if not you and tagging the individual if able.  
-    + Tag individuals who are in the photos if able.  
-* Use hashtags! (See below, [Tweeting about R](#TweetR), for more information on this)   
-* Add emojis and gifs when appropriate :)   
+    + Please properly attribute your photos and graphics by asking permission from the source if it is not you. Tag the source if you are able.  
+    + Tag individuals who are in the photos if you are able.  
+* Use hashtags! (See below in [Tweeting about R](#TweetR) for more information on this)   
+* Add emojis and gifs when appropriate `r emo::ji("smile")`     
 * Have Fun!
 
 ### Tweeting about R {#TweetR}  
@@ -174,7 +178,7 @@ Suggestions on how to introduce yourself:
     + Same goes for courses, books, and etc.   
 * Use hashtags whenever possible.  
     + Use the hashtag **#RLadies** whenever possible and relevant.  
-    + Use the **#rstats** hashtag when you share something that can be useful for the greater R community (e.g. a cool package); however, don’t use it when saying “Oh I’m doing R look at my screen” because this would create clutter in the R hashtag timeline and potentially lead to people blocking/silencing the account which we do not want. ;o)    
+    + Use the **#rstats** hashtag when you share something that can be useful for the greater R community (e.g. a cool package); however, don’t use it when saying “Oh I’m doing R look at my screen” because this would create clutter in the R hashtag timeline and potentially lead to people blocking/silencing the account which we do not want. `r emo::ji("wink")`    
   + Some other hashtag examples: **#dataviz, #rspatial, #opendata**    
   + You can also hashtag: package names, the location of your local chapter, etc.
   
@@ -195,8 +199,12 @@ If someone asks a question, we suggest re-tweeting their question with your resp
 * Create a twitter poll for followers to respond to.  
   
   
+***  
   
-
+  
+## Contact Us  
+  
+@WeAreRLadies is managed by R-Ladies Organizers. You can email them at [WeAre@rladies.org](mailto:weare@rladies.org).  
 
 
   
