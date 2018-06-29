@@ -183,9 +183,9 @@ Suggestions on how to introduce yourself:
   + You can also hashtag: package names, the location of your local chapter, etc.
   
   
-### Interacting with your audience  
-  
 <img src="img/twitter_poll.png" style="width:35%; margin: 5px 10px" align="right">
+  
+### Interacting with your audience  
   
 One goal of @WeAreRLadies is to maintain a strong R-Ladies community on Twitter! Therefore, please respond to people who interact with the account.   
   
