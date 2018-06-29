@@ -131,9 +131,9 @@ _**By signing on to be a curator of @WeAreRLadies you agree to the following:**_
   
 10. A curator’s access may be revoked if a disproportionate amount of followers report problems engaging with the curator, or if the curator is inactive on the account.  
 
-*In the event that you receive abuse while contributing, please do block the offender if you feel it necessary. If this does occur, please send the administrators an email or via the R-Ladies Community Slack, noting the offender’s Twitter handle and a description of the offense, to weare@rladies.org.* 
+*In the event that you receive abuse while contributing, please do block the offender if you feel it necessary. If this does occur, please send the administrators an email at [weare@rladies.org](mailto:weare@rladies.org) or via the R-Ladies Community Slack, noting the offender’s Twitter handle and a description of the offense.* 
 
-Please follow the [Twitter terms of service](https://help.twitter.com/en/rules-and-policies/twitter-rules#) The administrators of @WeAreRLadies reserve the right to warn or revoke the access of anyone who violates Twitter’s terms of service or breaches any of the above rules.  
+Please follow the [Twitter Terms of Service](https://help.twitter.com/en/rules-and-policies/twitter-rules#) The administrators of @WeAreRLadies reserve the right to warn or revoke the access of anyone who violates Twitter’s terms of service or breaches any of the above rules.  
   
   
   
