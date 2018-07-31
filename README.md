@@ -50,8 +50,9 @@ kable(schedule[,1:4]) %>%
 We are always looking for R-users to be a featured curator for our account! Everyone is welcome; R-Ladies encourages R-users of all professional backgrounds and experience levels to curate this account. Additionally, individuals do not need to be affiliated with R-Ladies to curate. Featured curators must meet the following criteria:  
   
 * Curators must identify as female or non-binary.  
-* Curators do not need to be affiliated with R-Ladies; however, curators need to register in the [R-Ladies directory](https://rladies.org/directory/) if they haven’t yet   
-* Curators must be individuals (i.e. an R-Ladies Chapter cannot be a featured curator; however, an organizer from a local chapter may curate and tweet about chapter events)   
+* Curators do not need to be affiliated with R-Ladies; however, curators need to register in the [R-Ladies directory](https://rladies.org/directory/) if they haven’t yet.   
+* Curators must be individuals (i.e. an R-Ladies Chapter cannot be a featured curator; however, an organizer from a local chapter may curate and tweet about chapter events).    
+* By signing on to be a curator of @WeAreRLadies you agree to our Curator Agreement that is outlined in our [RoCur Curator Guide](files/RoCur_Curator_Guide.pdf).   
 
 ### Curator Sign Up  
   
