@@ -45,7 +45,7 @@ kable(schedule[,1:4]) %>%
 ***  
   
   
-## Be a Curator! {#curating}  
+## Be a Curator! 
   
 We are always looking for R-users to be a featured curator for our account! Everyone is welcome; R-Ladies encourages R-users of all professional backgrounds and experience levels to curate this account. Additionally, individuals do not need to be affiliated with R-Ladies to curate. Featured curators must meet the following criteria:  
   
